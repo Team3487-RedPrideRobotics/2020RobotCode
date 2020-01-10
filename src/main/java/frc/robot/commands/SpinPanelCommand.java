@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj.util.Color;
 import edu.wpi.first.wpilibj.util.ColorShim;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.ControlPanelSubsystem;
+import frc.robot.Constants;
 
 //Blue R 0.2146, 0.4704, 0.3149
 //Green R 0.2551, 0.52245, 0.2224
@@ -37,6 +38,7 @@ public class SpinPanelCommand extends CommandBase {
             private static final long serialVersionUID = 7460008506773148384L;
 
             {
+                //TODO Maybe put this into a constant
                 put(new ColorShim(0.2146, 0.4704, 0.3149), "Blue");
                 put(new ColorShim(0.2551, 0.52245, 0.2224), "Green");
                 put(new ColorShim(0.4729, 0.3789, 0.14819), "Red");
@@ -66,7 +68,7 @@ public class SpinPanelCommand extends CommandBase {
 
     @Override
     public void execute() {
-        controlPanel.setSpeed(0.75);
+        controlPanel.setSpeed(Constants.SpinCommand.MAX_SPEED);
         Color color = controlPanel.getColor();
         ColorMatchResult result = matcher.matchClosestColor(color);
         displayColor(result);
@@ -87,7 +89,7 @@ public class SpinPanelCommand extends CommandBase {
         
         if(prevColor==result.color) {
 
-            if(deltaTime > 1000) {
+            if(deltaTime > Constants.SpinCommand.DELTA_COLOR_TIME) {
                 this.wheelStopped = true;
             }
             return;
@@ -95,12 +97,12 @@ public class SpinPanelCommand extends CommandBase {
             this.wheelStopped = false;
         }
         System.out.println("Rotation");
-        this.rotations += (double) 1/8;
+        this.rotations += Constants.SpinCommand.COLOR_PER_ROTATION;
 
     }
 
     private boolean rotationsCompleted() {
-        return this.rotations >= 3;
+        return this.rotations >= Constants.SpinCommand.MIN_ROTATIONS;
     }
     
 }

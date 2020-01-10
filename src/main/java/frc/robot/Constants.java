@@ -16,4 +16,27 @@ package frc.robot;
  * constants are needed, to reduce verbosity.
  */
 public final class Constants {
+
+    public static final class SpinCommand {
+        public static final double MAX_SPEED = 1;
+        //The amount of milliseconds between colors to determine if the control panel has stopped.
+        public static final long DELTA_COLOR_TIME = 150;
+
+        public static final double COLOR_PER_ROTATION = 1/8;
+
+        public static final int MIN_ROTATIONS = 3;
+    }
+
+    //This class holds all constants for the operator interface.
+    //This only uses port numbers, not actual button classes
+    //Also, buttons whose axis can be defined with a primitive,
+    //may also be used here
+    public static final class OI {
+        public static final int FIGHT_STICK = 2;
+        public static final int LEFT_STICK = 0;
+        public static final int RIGHT_STICK = 1;
+
+        //Commands
+        public static final int SPIN_COMMAND = 1;
+    }
 }

@@ -9,11 +9,9 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj.XboxController;
-import frc.robot.commands.ExampleCommand;
 import frc.robot.commands.SpinPanelCommand;
 import frc.robot.subsystems.ControlPanelSubsystem;
-import frc.robot.subsystems.ExampleSubsystem;
+import frc.robot.Constants;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 
@@ -46,8 +44,8 @@ public class RobotContainer {
    * {@link edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
   private void configureButtonBindings() {
-    Joystick stick1 = new Joystick(0);
-    JoystickButton spinButton = new JoystickButton(stick1, 1); 
+    Joystick stick3 = new Joystick(Constants.OI.FIGHT_STICK);
+    JoystickButton spinButton = new JoystickButton(stick3, Constants.OI.SPIN_COMMAND); 
 
     spinButton.whenPressed(new SpinPanelCommand(new ControlPanelSubsystem()));
 
