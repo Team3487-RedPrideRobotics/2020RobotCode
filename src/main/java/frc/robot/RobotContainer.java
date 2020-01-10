@@ -23,9 +23,11 @@ import edu.wpi.first.wpilibj2.command.button.JoystickButton;
  */
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
-  private final ExampleSubsystem m_exampleSubsystem = new ExampleSubsystem();
+  //private final ExampleSubsystem m_exampleSubsystem = new ExampleSubsystem();
+  private final ControlPanelSubsystem controlPanelSubsystem = new ControlPanelSubsystem();
 
-  private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
+  //private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
+  private final SpinPanelCommand spinPanelCommand = new SpinPanelCommand(controlPanelSubsystem);
 
 
 
@@ -47,7 +49,7 @@ public class RobotContainer {
     Joystick stick3 = new Joystick(Constants.OI.FIGHT_STICK);
     JoystickButton spinButton = new JoystickButton(stick3, Constants.OI.SPIN_COMMAND); 
 
-    spinButton.whenPressed(new SpinPanelCommand(new ControlPanelSubsystem()));
+    spinButton.whenPressed(spinPanelCommand);
 
   }
 
@@ -59,6 +61,8 @@ public class RobotContainer {
    */
   public Command getAutonomousCommand() {
     // An ExampleCommand will run in autonomous
-    return m_autoCommand;
+    //return m_autoCommand;
+    //TODO Replace this command with the chain of commands for AUTO
+    return spinPanelCommand;
   }
 }
