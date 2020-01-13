@@ -1,17 +1,9 @@
 package frc.robot.commands;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import com.revrobotics.ColorMatch;
-import com.revrobotics.ColorMatchResult;
-
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import edu.wpi.first.wpilibj.util.Color;
-import edu.wpi.first.wpilibj.util.ColorShim;
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import frc.robot.subsystems.ControlPanelSubsystem;
 import frc.robot.Constants;
+import frc.robot.subsystems.ControlPanelSubsystem;
 
 //Blue R 0.2146, 0.4704, 0.3149
 //Green R 0.2551, 0.52245, 0.2224
@@ -20,7 +12,6 @@ import frc.robot.Constants;
 
 public class SpinPanelCommand extends CommandBase {
     private final ControlPanelSubsystem controlPanel;
-    private final ColorMatch matcher = new ColorMatch();
     private double rotations = 0;
     private long prevTime;
     private String prevColor;
@@ -50,7 +41,7 @@ public class SpinPanelCommand extends CommandBase {
     @Override
     public void execute() {
         controlPanel.setSpeed(Constants.SpinCommand.MAX_SPEED);
-        String color = controlPanel.getColor()
+        String color = controlPanel.getColor();
         countRotations(color, System.currentTimeMillis());
         SmartDashboard.putNumber("Rotations", this.rotations);
         SmartDashboard.putBoolean("Prev color Same", this.wheelStopped);
