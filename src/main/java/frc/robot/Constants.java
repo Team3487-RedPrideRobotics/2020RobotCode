@@ -39,4 +39,7 @@ public final class Constants {
         //Commands
         public static final int SPIN_COMMAND = 1;
     }
+
+    //Motors
+    public static final int WHEEL_SPINNER = 6;
 }
