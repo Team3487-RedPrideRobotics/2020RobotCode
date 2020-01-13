@@ -21,39 +21,20 @@ import frc.robot.Constants;
 public class SpinPanelCommand extends CommandBase {
     private final ControlPanelSubsystem controlPanel;
     private final ColorMatch matcher = new ColorMatch();
-    private Map<Color,String> colorMap;
     private double rotations = 0;
     private long prevTime;
-    private Color prevColor;
+    private String prevColor;
     private boolean wheelStopped = false;
 
     public SpinPanelCommand(final ControlPanelSubsystem subsystem) {
         controlPanel = subsystem;
         addRequirements(controlPanel);
         setName("Control Panel Subsystem");
-        colorMap = new HashMap<Color, String>() {
-            /**
-             *Generated Serial ID
-             */
-            private static final long serialVersionUID = 7460008506773148384L;
-
-            {
-                //TODO Maybe put this into a constant
-                put(new ColorShim(0.2146, 0.4704, 0.3149), "Blue");
-                put(new ColorShim(0.2551, 0.52245, 0.2224), "Green");
-                put(new ColorShim(0.4729, 0.3789, 0.14819), "Red");
-                put(new ColorShim(0.3591, 0.50976, 0.131104), "Yellow");
-            }
-        };
     }
 
     @Override
     public void initialize() {
         this.rotations = 0;
-        for (Map.Entry<Color, String> entry : colorMap.entrySet()) {
-            this.matcher.addColorMatch(entry.getKey());
-        }
-
     }
 
     @Override
@@ -69,25 +50,18 @@ public class SpinPanelCommand extends CommandBase {
     @Override
     public void execute() {
         controlPanel.setSpeed(Constants.SpinCommand.MAX_SPEED);
-        Color color = controlPanel.getColor();
-        ColorMatchResult result = matcher.matchClosestColor(color);
-        displayColor(result);
-        countRotations(result, System.currentTimeMillis());
+        String color = controlPanel.getColor()
+        countRotations(color, System.currentTimeMillis());
         SmartDashboard.putNumber("Rotations", this.rotations);
         SmartDashboard.putBoolean("Prev color Same", this.wheelStopped);
 
-        prevColor = result.color;        
+        prevColor = color;        
     }
 
-    private void displayColor(ColorMatchResult result) {
-        SmartDashboard.putString("Color:", colorMap.get(result.color));
-        SmartDashboard.putString("Confidence", String.format("%.2f%%",result.confidence*100));
-    }
-
-    private void countRotations(ColorMatchResult result, long currentTime) {
+    private void countRotations(String result, long currentTime) {
         long deltaTime = currentTime - this.prevTime;
         
-        if(prevColor==result.color) {
+        if(prevColor.equals(result)) {
 
             if(deltaTime > Constants.SpinCommand.DELTA_COLOR_TIME) {
                 this.wheelStopped = true;
