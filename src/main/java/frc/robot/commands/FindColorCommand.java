@@ -2,10 +2,7 @@ package frc.robot.commands;
 
 import java.util.HashMap;
 
-import edu.wpi.first.wpilibj.util.ColorShim;
 import edu.wpi.first.wpilibj.DriverStation;
-import edu.wpi.first.wpilibj.util.Color;
-
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Constants;
 import frc.robot.subsystems.ControlPanelSubsystem;
@@ -50,15 +47,36 @@ public class FindColorCommand extends CommandBase {
     }
 
     @Override
+    public void end(final boolean interrupted) {
+        controlPanel.setSpeed(0);
+    }
+
+    @Override
+    public boolean isFinished() {
+        return main();
+    }
+
+    @Override
     public void execute() {
 
+        main();
+
+    }
+
+    private boolean main() {
         if(gameData.length() == 0) {
             gameData = DriverStation.getInstance().getGameSpecificMessage();
-            return;
+            return false;
         }
-        String findColor = interpretColor.get(gameData.charAt(0));
+        String findColor = interpretColor.get(gameData.substring(0, 1));
         String wheelColor = colorShifter.get(controlPanel.getColor());
 
+        if(findColor.equals(wheelColor)) {
+            controlPanel.setSpeed(0);
+            return true;
+        }
+
+        return false;
     }
 
 }
