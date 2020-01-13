@@ -9,6 +9,7 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.Joystick;
+import frc.robot.commands.FindColorCommand;
 import frc.robot.commands.SpinPanelCommand;
 import frc.robot.subsystems.ControlPanelSubsystem;
 import frc.robot.Constants;
@@ -28,6 +29,7 @@ public class RobotContainer {
 
   //private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
   private final SpinPanelCommand spinPanelCommand = new SpinPanelCommand(controlPanelSubsystem);
+  private final FindColorCommand findColorCommand = new FindColorCommand(controlPanelSubsystem);
 
 
 
@@ -46,10 +48,12 @@ public class RobotContainer {
    * {@link edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
   private void configureButtonBindings() {
-    Joystick stick3 = new Joystick(Constants.OI.FIGHT_STICK);
+    Joystick stick3 = new Joystick(Constants.OI.BUTTON_BOARD);
     JoystickButton spinButton = new JoystickButton(stick3, Constants.OI.SPIN_COMMAND); 
+    JoystickButton findColorButton = new JoystickButton(stick3, Constants.OI.FIND_COLOR_COMMAND);
 
     spinButton.whenPressed(spinPanelCommand);
+    findColorButton.whenPressed(findColorCommand);
 
   }
 
