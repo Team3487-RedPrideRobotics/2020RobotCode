@@ -32,14 +32,15 @@ public final class Constants {
     //Also, buttons whose axis can be defined with a primitive,
     //may also be used here
     public static final class OI {
-        public static final int FIGHT_STICK = 2;
+        public static final int BUTTON_BOARD = 2;
         public static final int LEFT_STICK = 0;
         public static final int RIGHT_STICK = 1;
 
         //Commands
         public static final int SPIN_COMMAND = 1;
+        public static final int FIND_COLOR_COMMAND = 3;
     }
 
     //Motors
-    public static final int WHEEL_SPINNER = 6;
+    public static final int WHEEL_SPINNER = 2;
 }
