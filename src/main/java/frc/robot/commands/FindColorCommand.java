@@ -10,7 +10,7 @@ import frc.robot.subsystems.ControlPanelSubsystem;
 public class FindColorCommand extends CommandBase {
 
     private ControlPanelSubsystem controlPanel;
-    private String gameData;
+    private String gameData = "";
     private HashMap<String, String> colorShifter = new HashMap<String, String>() {
         /**
         * Generated ID Removes Warnings

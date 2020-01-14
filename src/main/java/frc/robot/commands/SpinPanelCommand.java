@@ -14,7 +14,7 @@ public class SpinPanelCommand extends CommandBase {
     private final ControlPanelSubsystem controlPanel;
     private double rotations = 0;
     private long prevTime;
-    private String prevColor;
+    private String prevColor = "";
     private boolean wheelStopped = false;
 
     public SpinPanelCommand(final ControlPanelSubsystem subsystem) {
