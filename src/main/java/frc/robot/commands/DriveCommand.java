@@ -14,11 +14,12 @@ public class DriveCommand extends CommandBase {
         this.drive = drive;
         this.stickRight = stickRight;
         this.stickLeft = stickLeft;
+        addRequirements(drive);
 };
 
     @Override
     public void execute() {
-        drive.setSpeed(stickLeft.getRawAxis(1), stickRight.getRawAxis(1));
+        drive.setSpeed(-stickLeft.getRawAxis(1), -stickRight.getRawAxis(1));
     }
 
 }

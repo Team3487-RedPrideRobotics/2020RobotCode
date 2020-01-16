@@ -18,7 +18,7 @@ package frc.robot;
 public final class Constants {
 
     public static final class SpinCommand {
-        public static final double MAX_SPEED = 1;
+        public static final double MAX_SPEED = 1/4;
         //The amount of milliseconds between colors to determine if the control panel has stopped.
         public static final long DELTA_COLOR_TIME = 150;
 
