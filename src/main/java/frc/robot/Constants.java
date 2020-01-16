@@ -24,7 +24,7 @@ public final class Constants {
 
         public static final double COLOR_PER_ROTATION = 1/8;
 
-        public static final int MIN_ROTATIONS = 3;
+        public static final int MIN_ROTATIONS = 4;
     }
 
     public static final class DriveCommand {
