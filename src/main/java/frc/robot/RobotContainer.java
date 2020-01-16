@@ -28,6 +28,7 @@ public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   //private final ExampleSubsystem m_exampleSubsystem = new ExampleSubsystem();
   private final ControlPanelSubsystem controlPanelSubsystem = new ControlPanelSubsystem();
+  private final DriveSubsystem driveSubsytem = new DriveSubsystem();
 
   //private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
   private final SpinPanelCommand spinPanelCommand = new SpinPanelCommand(controlPanelSubsystem);
@@ -55,8 +56,8 @@ public class RobotContainer {
     Joystick stick3 = new Joystick(Constants.OI.BUTTON_BOARD);
     JoystickButton spinButton = new JoystickButton(stick3, Constants.OI.SPIN_COMMAND); 
     JoystickButton findColorButton = new JoystickButton(stick3, Constants.OI.FIND_COLOR_COMMAND);
-    DriveSubsystem drive = new DriveSubsystem();
-    drive.setDefaultCommand(new DriveCommand(drive, stick1, stick2));
+    
+    driveSubsytem.setDefaultCommand(new DriveCommand(driveSubsytem, stick1, stick2));
     
     spinButton.whenPressed(spinPanelCommand);
     findColorButton.whenPressed(findColorCommand);
