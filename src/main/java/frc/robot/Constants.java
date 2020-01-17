@@ -52,8 +52,8 @@ public final class Constants {
     }
 
     public static final class ClimbCommand {
-        public static final double raiseSpeed = 0.5;
-        public static final double lowerSpeed = -0.5;
+        public static final double raiseSpeed = 0.75;
+        public static final double lowerSpeed = -1;
     }
 
     //This class holds all constants for the operator interface.
