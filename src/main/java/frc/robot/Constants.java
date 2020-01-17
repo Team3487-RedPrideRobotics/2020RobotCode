@@ -7,6 +7,11 @@
 
 package frc.robot;
 
+import java.util.HashMap;
+
+import edu.wpi.first.wpilibj.util.Color;
+import edu.wpi.first.wpilibj.util.ColorShim;
+
 /**
  * The Constants class provides a convenient place for teams to hold robot-wide numerical or boolean
  * constants.  This class should not be used for any other purpose.  All constants should be
@@ -17,6 +22,21 @@ package frc.robot;
  */
 public final class Constants {
 
+    public static final class ControlPanel {
+        public static final HashMap<Color, String> COLORMAP = new HashMap<Color, String>() {
+            /**
+             *Generated Serial ID
+             */
+            private static final long serialVersionUID = 7460008506773148384L;
+    
+            {
+                put(new ColorShim(0.2146, 0.4704, 0.3149), "Blue");
+                put(new ColorShim(0.2551, 0.52245, 0.2224), "Green");
+                put(new ColorShim(0.4729, 0.3789, 0.14819), "Red");
+                put(new ColorShim(0.3591, 0.50976, 0.131104), "Yellow");
+            }
+        };
+    }
     public static final class SpinCommand {
         public static final double MAX_SPEED = 1/4;
         //The amount of milliseconds between colors to determine if the control panel has stopped.

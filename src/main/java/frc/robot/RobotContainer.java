@@ -67,7 +67,7 @@ public class RobotContainer {
     findColorButton.whenPressed(findColorCommand);
 
     RaiseHooksCommand raiseHooksCommand = new RaiseHooksCommand(climbSubsystem, stick3);
-    //climbSubsystem.setDefaultCommand(raiseHooksCommand);
+    climbSubsystem.setDefaultCommand(raiseHooksCommand);
     
     
 
