@@ -11,7 +11,9 @@ import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.Joystick;
 import frc.robot.commands.DriveCommand;
 import frc.robot.commands.FindColorCommand;
+import frc.robot.commands.RaiseHooksCommand;
 import frc.robot.commands.SpinPanelCommand;
+import frc.robot.subsystems.ClimbSubsystem;
 import frc.robot.subsystems.ControlPanelSubsystem;
 import frc.robot.subsystems.DriveSubsystem;
 import frc.robot.Constants;
@@ -29,11 +31,12 @@ public class RobotContainer {
   //private final ExampleSubsystem m_exampleSubsystem = new ExampleSubsystem();
   private final ControlPanelSubsystem controlPanelSubsystem = new ControlPanelSubsystem();
   private final DriveSubsystem driveSubsytem = new DriveSubsystem();
+  private final ClimbSubsystem climbSubsystem = new ClimbSubsystem();
+
 
   //private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
   private final SpinPanelCommand spinPanelCommand = new SpinPanelCommand(controlPanelSubsystem);
   private final FindColorCommand findColorCommand = new FindColorCommand(controlPanelSubsystem);
-
 
 
   /**
@@ -56,12 +59,17 @@ public class RobotContainer {
     Joystick stick3 = new Joystick(Constants.OI.BUTTON_BOARD);
     JoystickButton spinButton = new JoystickButton(stick3, Constants.OI.SPIN_COMMAND); 
     JoystickButton findColorButton = new JoystickButton(stick3, Constants.OI.FIND_COLOR_COMMAND);
+
     
     driveSubsytem.setDefaultCommand(new DriveCommand(driveSubsytem, stick1, stick2));
     
     spinButton.whenPressed(spinPanelCommand);
     findColorButton.whenPressed(findColorCommand);
 
+    RaiseHooksCommand raiseHooksCommand = new RaiseHooksCommand(climbSubsystem, stick3);
+    //climbSubsystem.setDefaultCommand(raiseHooksCommand);
+    
+    
 
   }
 

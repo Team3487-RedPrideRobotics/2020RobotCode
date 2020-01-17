@@ -31,6 +31,11 @@ public final class Constants {
         
     }
 
+    public static final class ClimbCommand {
+        public static final double raiseSpeed = 0.5;
+        public static final double lowerSpeed = -0.5;
+    }
+
     //This class holds all constants for the operator interface.
     //This only uses port numbers, not actual button classes
     //Also, buttons whose axis can be defined with a primitive,
@@ -48,7 +53,7 @@ public final class Constants {
     //Motors
     public static final int DRIVE_RIGHT = 0;
     public static final int DRIVE_LEFT = 1;
-    public static final int CIMB_RIGHT = 2;
-    public static final int CLIMB_LEFT = 3;    
+    public static final int CLIMB_RIGHT = 2;
+    public static final int CLIMB_LEFT = 3;   
     public static final int WHEEL_SPINNER = 6;
 }
