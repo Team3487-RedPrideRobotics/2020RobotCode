@@ -52,7 +52,7 @@ public class RobotContainer {
    */
   private void configureButtonBindings() {
     Joystick stick1 = new Joystick(Constants.OI.LEFT_STICK);
-    Joystick stick2 = new Joystick(Constants.OI.LEFT_STICK);
+    Joystick stick2 = new Joystick(Constants.OI.RIGHT_STICK);
     Joystick stick3 = new Joystick(Constants.OI.BUTTON_BOARD);
     JoystickButton spinButton = new JoystickButton(stick3, Constants.OI.SPIN_COMMAND); 
     JoystickButton findColorButton = new JoystickButton(stick3, Constants.OI.FIND_COLOR_COMMAND);
