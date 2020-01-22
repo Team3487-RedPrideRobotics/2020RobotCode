@@ -31,4 +31,9 @@ public class ADriveStraight extends CommandBase {
     public void end(boolean interrupted) {
         driveSubsystem.setSpeed(0,0);
     } 
+
+    @Override
+    public boolean isFinished() {
+        return false;
+    }
 }
