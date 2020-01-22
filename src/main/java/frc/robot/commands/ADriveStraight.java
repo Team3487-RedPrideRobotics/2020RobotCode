@@ -20,7 +20,7 @@ public class ADriveStraight extends CommandBase {
 
     @Override
     public void execute() {
-        //TODO Drive Straight Code
+        //TODO Drive Straight Code gyros NOT ACCELEROMETERS
         if(reversed) {
             driveSubsystem.setSpeed(-max_speed, -max_speed);
         }
