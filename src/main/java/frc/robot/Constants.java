@@ -67,6 +67,11 @@ public final class Constants {
         public static final double SPEED = -1;
     }
 
+    public static final class Throughput {
+        public static final double UP_SPEED = 1;
+        public static final double DOWN_SPEED = -1;
+    }
+
     //This class holds all constants for the operator interface.
     //This only uses port numbers, not actual button classes
     //Also, buttons whose axis can be defined with a primitive,
@@ -87,6 +92,9 @@ public final class Constants {
         public static final int INTAKE_OUT_COMMAND = 1;
 
         public static final int OUTTAKE_COMMAND = 4;
+
+        public static final int THROUGHPUT_UP_COMMAND = 3;
+        public static final int THROUGHPUT_DOWN_COMMAND = 4;
     }
 
     //Motors
@@ -97,6 +105,7 @@ public final class Constants {
     public static final int OUTTAKE = 4;
     public static final int WINCH_TEMP = 5;   
     public static final int WHEEL_SPINNER = 6;
+    public static final int THROUGHPUT = 7;
     public static final int INTAKE_SPIN = 8;
     public static final int INTAKE_ROTATE = 9;
 }

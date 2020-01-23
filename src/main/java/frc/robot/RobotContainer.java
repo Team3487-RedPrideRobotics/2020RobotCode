@@ -29,6 +29,7 @@ public class RobotContainer {
   private final ClimbSubsystem climbSubsystem = new ClimbSubsystem();
   private final IntakeSubsystem intakeSubsystem = new IntakeSubsystem();
   private final OuttakeSubsystem outtakeSubsystem = new OuttakeSubsystem();
+  private final ThroughputSubsystem throughputSubsystem = new ThroughputSubsystem();
 
   //private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
   private final SpinPanelCommand spinPanelCommand = new SpinPanelCommand(controlPanelSubsystem);
@@ -38,7 +39,8 @@ public class RobotContainer {
   private final IntakeInCommand intakeInCommand = new IntakeInCommand(intakeSubsystem);
   private final IntakeOutCommand intakeOutCommand = new IntakeOutCommand(intakeSubsystem);
   private final OuttakeCommand outtakeCommand = new OuttakeCommand(outtakeSubsystem);
-
+  private final ThroughputUpCommand throughputUpCommand = new ThroughputUpCommand(throughputSubsystem);
+  private final ThroughputDownCommand throughputDownCommand = new ThroughputDownCommand(throughputSubsystem);
   /**
    * The container for the robot.  Contains subsystems, OI devices, and commands.
    */
@@ -64,7 +66,8 @@ public class RobotContainer {
     JoystickButton intakeInButton = new JoystickButton(stick1, Constants.OI.INTAKE_IN_COMMAND);
     JoystickButton intakeOutButton = new JoystickButton(stick2, Constants.OI.INTAKE_OUT_COMMAND);
     JoystickButton outtakeButton = new JoystickButton(stick2, Constants.OI.OUTTAKE_COMMAND);
-
+    JoystickButton throughputUpButton = new JoystickButton(stick2, Constants.OI.THROUGHPUT_UP_COMMAND);
+    JoystickButton throughputDownButton = new JoystickButton(stick1, Constants.OI.THROUGHPUT_DOWN_COMMAND);
 
     driveSubsytem.setDefaultCommand(new DriveCommand(driveSubsytem, stick1, stick2));
     
@@ -80,6 +83,9 @@ public class RobotContainer {
     intakeInButton.whileHeld(intakeInCommand);
     
     outtakeButton.whileHeld(outtakeCommand);
+
+    throughputUpButton.whileHeld(throughputUpCommand);
+    throughputDownButton.whileHeld(throughputDownCommand);
 
   }
 
