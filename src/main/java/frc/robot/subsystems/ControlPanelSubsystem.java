@@ -36,7 +36,11 @@ public class ControlPanelSubsystem extends SubsystemBase {
 
     //Gets 
     public String getColor() {
-        ColorMatchResult result = matcher.matchClosestColor(sensor.getColor());
+        Color cColor = sensor.getColor();
+        if(cColor == null) {
+            return "None";
+        }
+        ColorMatchResult result = matcher.matchClosestColor(cColor);
         String color = Constants.ControlPanel.COLORMAP.get(result.color);
         SmartDashboard.putString("Current Color:", color);
         return color;
