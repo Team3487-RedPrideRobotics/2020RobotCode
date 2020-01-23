@@ -74,6 +74,10 @@ public final class Constants {
     public static final int DRIVE_RIGHT = 0;
     public static final int DRIVE_LEFT = 1;
     public static final int CLIMB_RIGHT = 2;
-    public static final int CLIMB_LEFT = 3;   
+    public static final int CLIMB_LEFT = 3;
+    public static final int OUTTAKE = 4;
+    public static final int WINCH_TEMP = 5;   
     public static final int WHEEL_SPINNER = 6;
+    public static final int INTAKE_SPIN = 8;
+    public static final int INTAKE_ROTATE = 9;
 }
