@@ -7,7 +7,6 @@ import frc.robot.subsystems.IntakeSubsystem;
 public class IntakeDownCommand extends CommandBase {
 
     private IntakeSubsystem intake;
-    private long time;
 
     public IntakeDownCommand(IntakeSubsystem subsystem) {
         intake = subsystem;
@@ -22,7 +21,6 @@ public class IntakeDownCommand extends CommandBase {
 
     @Override
     public void initialize() {
-        time = System.currentTimeMillis();
         intake.rotateSpeed(Constants.Intake.DOWN_SPEED);
     }
 
@@ -33,7 +31,7 @@ public class IntakeDownCommand extends CommandBase {
 
     @Override
     public boolean isFinished() {
-        return System.currentTimeMillis() - time > Constants.Intake.SPIN_TIME;
+        return true;
     }
 
 }
