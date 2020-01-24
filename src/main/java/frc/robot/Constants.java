@@ -56,6 +56,12 @@ public final class Constants {
         public static final double lowerSpeed = -1;
     }
 
+    public static final class Intake {
+        public static final double DOWN_SPEED = 0.5;
+        public static final double UP_SPEED = -0.5;
+        public static final long SPIN_TIME = 1000;
+    }
+
     //This class holds all constants for the operator interface.
     //This only uses port numbers, not actual button classes
     //Also, buttons whose axis can be defined with a primitive,

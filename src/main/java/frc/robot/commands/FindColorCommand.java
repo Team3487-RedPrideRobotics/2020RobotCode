@@ -22,6 +22,7 @@ public class FindColorCommand extends CommandBase {
         put("Blue","Red");
         put("Green", "Yellow");
         put("Red", "Blue");
+        put("None", "None");
     }};
     private HashMap<String, String> interpretColor = new HashMap<String, String>() {
         /**
@@ -34,6 +35,7 @@ public class FindColorCommand extends CommandBase {
         put("B","Blue");
         put("G", "Green");
         put("R", "Red");
+        put("N", "None");
     }};
 
     public FindColorCommand(ControlPanelSubsystem subsystem) {
