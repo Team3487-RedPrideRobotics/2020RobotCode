@@ -75,8 +75,8 @@ public final class Constants {
         public static final int SPIN_COMMAND = 1;
         public static final int FIND_COLOR_COMMAND = 3;
 
-        public static final int INTAKE_DOWN_COMMAND = 1;
-        public static final int INTAKE_UP_COMMAND = 1;
+        public static final int INTAKE_DOWN_COMMAND = 2;
+        public static final int INTAKE_UP_COMMAND = 2;
     }
 
     //Motors

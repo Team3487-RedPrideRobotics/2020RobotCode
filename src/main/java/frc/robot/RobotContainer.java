@@ -9,11 +9,7 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.Joystick;
-import frc.robot.commands.DriveCommand;
-import frc.robot.commands.FindColorCommand;
-import frc.robot.commands.IntakeDownCommand;
-import frc.robot.commands.RaiseHooksCommand;
-import frc.robot.commands.SpinPanelCommand;
+import frc.robot.commands.*;
 import frc.robot.subsystems.ClimbSubsystem;
 import frc.robot.subsystems.ControlPanelSubsystem;
 import frc.robot.subsystems.DriveSubsystem;
@@ -41,6 +37,7 @@ public class RobotContainer {
   private final SpinPanelCommand spinPanelCommand = new SpinPanelCommand(controlPanelSubsystem);
   private final FindColorCommand findColorCommand = new FindColorCommand(controlPanelSubsystem);
   private final IntakeDownCommand intakeDownCommand = new IntakeDownCommand(intakeSubsystem);
+  private final IntakeUpCommand intakeUpCommand = new IntakeUpCommand(intakeSubsystem);
 
   /**
    * The container for the robot.  Contains subsystems, OI devices, and commands.
@@ -63,7 +60,8 @@ public class RobotContainer {
     JoystickButton spinButton = new JoystickButton(stick3, Constants.OI.SPIN_COMMAND); 
     JoystickButton findColorButton = new JoystickButton(stick3, Constants.OI.FIND_COLOR_COMMAND);
     JoystickButton intakeDownButton = new JoystickButton(stick1, Constants.OI.INTAKE_DOWN_COMMAND);
-    
+    JoystickButton intakeUpButton = new JoystickButton(stick2, Constants.OI.INTAKE_UP_COMMAND);
+
     driveSubsytem.setDefaultCommand(new DriveCommand(driveSubsytem, stick1, stick2));
     
     spinButton.whenPressed(spinPanelCommand);
@@ -73,6 +71,7 @@ public class RobotContainer {
     climbSubsystem.setDefaultCommand(raiseHooksCommand);
 
     intakeDownButton.whileHeld(intakeDownCommand);
+    intakeUpButton.whileHeld(intakeUpCommand);
     
     
     
