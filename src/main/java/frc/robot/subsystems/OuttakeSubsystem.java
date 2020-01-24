@@ -6,12 +6,12 @@ import frc.robot.Constants;
 
 public class OuttakeSubsystem extends SubsystemBase {
 
-    private final Spark digestiveTractSpark = new Spark(Constants.OUTTAKE);
+    private final Spark outtakeSpark = new Spark(Constants.OUTTAKE);
 
     public OuttakeSubsystem() {}
 
     public void outtakeSpeed(double speed) {
-        digestiveTractSpark.set(speed);
+        outtakeSpark.set(speed);
     }
 
 }
