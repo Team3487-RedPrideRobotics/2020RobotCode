@@ -59,7 +59,8 @@ public final class Constants {
     public static final class Intake {
         public static final double DOWN_SPEED = 0.5;
         public static final double UP_SPEED = -0.5;
-        public static final long SPIN_TIME = 1000;
+        public static final double IN_SPEED = 1;
+        public static final double OUT_SPEED = -1;
     }
 
     //This class holds all constants for the operator interface.
@@ -77,6 +78,9 @@ public final class Constants {
 
         public static final int INTAKE_DOWN_COMMAND = 2;
         public static final int INTAKE_UP_COMMAND = 2;
+
+        public static final int INTAKE_IN_COMMAND = 1;
+        public static final int INTAKE_OUT_COMMAND = 1;
     }
 
     //Motors

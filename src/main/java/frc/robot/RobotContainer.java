@@ -10,10 +10,7 @@ package frc.robot;
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.Joystick;
 import frc.robot.commands.*;
-import frc.robot.subsystems.ClimbSubsystem;
-import frc.robot.subsystems.ControlPanelSubsystem;
-import frc.robot.subsystems.DriveSubsystem;
-import frc.robot.subsystems.IntakeSubsystem;
+import frc.robot.subsystems.*;
 import frc.robot.Constants;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
@@ -38,6 +35,9 @@ public class RobotContainer {
   private final FindColorCommand findColorCommand = new FindColorCommand(controlPanelSubsystem);
   private final IntakeDownCommand intakeDownCommand = new IntakeDownCommand(intakeSubsystem);
   private final IntakeUpCommand intakeUpCommand = new IntakeUpCommand(intakeSubsystem);
+  private final IntakeInCommand intakeInCommand = new IntakeInCommand(intakeSubsystem);
+  private final IntakeOutCommand intakeOutCommand = new IntakeOutCommand(intakeSubsystem);
+
 
   /**
    * The container for the robot.  Contains subsystems, OI devices, and commands.
@@ -61,6 +61,10 @@ public class RobotContainer {
     JoystickButton findColorButton = new JoystickButton(stick3, Constants.OI.FIND_COLOR_COMMAND);
     JoystickButton intakeDownButton = new JoystickButton(stick1, Constants.OI.INTAKE_DOWN_COMMAND);
     JoystickButton intakeUpButton = new JoystickButton(stick2, Constants.OI.INTAKE_UP_COMMAND);
+    JoystickButton intakeInButton = new JoystickButton(stick1, Constants.OI.INTAKE_IN_COMMAND);
+    JoystickButton intakeOutButton = new JoystickButton(stick2, Constants.OI.INTAKE_OUT_COMMAND);
+
+
 
     driveSubsytem.setDefaultCommand(new DriveCommand(driveSubsytem, stick1, stick2));
     
@@ -72,7 +76,8 @@ public class RobotContainer {
 
     intakeDownButton.whileHeld(intakeDownCommand);
     intakeUpButton.whileHeld(intakeUpCommand);
-    
+    intakeOutButton.whileHeld(intakeOutCommand);
+    intakeInButton.whileHeld(intakeInCommand);
     
     
 
