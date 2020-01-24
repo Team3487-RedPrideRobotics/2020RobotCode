@@ -63,6 +63,10 @@ public final class Constants {
         public static final double OUT_SPEED = -1;
     }
 
+    public static final class Outtake {
+        public static final double SPEED = -1;
+    }
+
     //This class holds all constants for the operator interface.
     //This only uses port numbers, not actual button classes
     //Also, buttons whose axis can be defined with a primitive,
@@ -81,6 +85,8 @@ public final class Constants {
 
         public static final int INTAKE_IN_COMMAND = 1;
         public static final int INTAKE_OUT_COMMAND = 1;
+
+        public static final int OUTTAKE_COMMAND = 4;
     }
 
     //Motors

@@ -28,7 +28,7 @@ public class RobotContainer {
   private final DriveSubsystem driveSubsytem = new DriveSubsystem();
   private final ClimbSubsystem climbSubsystem = new ClimbSubsystem();
   private final IntakeSubsystem intakeSubsystem = new IntakeSubsystem();
-
+  private final OuttakeSubsystem outtakeSubsystem = new OuttakeSubsystem();
 
   //private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
   private final SpinPanelCommand spinPanelCommand = new SpinPanelCommand(controlPanelSubsystem);
@@ -37,7 +37,7 @@ public class RobotContainer {
   private final IntakeUpCommand intakeUpCommand = new IntakeUpCommand(intakeSubsystem);
   private final IntakeInCommand intakeInCommand = new IntakeInCommand(intakeSubsystem);
   private final IntakeOutCommand intakeOutCommand = new IntakeOutCommand(intakeSubsystem);
-
+  private final OuttakeCommand outtakeCommand = new OuttakeCommand(outtakeSubsystem);
 
   /**
    * The container for the robot.  Contains subsystems, OI devices, and commands.
@@ -63,7 +63,7 @@ public class RobotContainer {
     JoystickButton intakeUpButton = new JoystickButton(stick2, Constants.OI.INTAKE_UP_COMMAND);
     JoystickButton intakeInButton = new JoystickButton(stick1, Constants.OI.INTAKE_IN_COMMAND);
     JoystickButton intakeOutButton = new JoystickButton(stick2, Constants.OI.INTAKE_OUT_COMMAND);
-
+    JoystickButton outtakeButton = new JoystickButton(stick2, Constants.OI.OUTTAKE_COMMAND);
 
 
     driveSubsytem.setDefaultCommand(new DriveCommand(driveSubsytem, stick1, stick2));
@@ -79,7 +79,7 @@ public class RobotContainer {
     intakeOutButton.whileHeld(intakeOutCommand);
     intakeInButton.whileHeld(intakeInCommand);
     
-    
+    outtakeButton.whileHeld(outtakeCommand);
 
   }
 
