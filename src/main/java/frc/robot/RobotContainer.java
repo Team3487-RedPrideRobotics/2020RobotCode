@@ -70,8 +70,8 @@ public class RobotContainer {
     JoystickButton intakeOutButton = new JoystickButton(stick2, Constants.OI.INTAKE_OUT_COMMAND);
     JoystickButton outtakeInButton = new JoystickButton(stick2, Constants.OI.OUTTAKE_IN_COMMAND);
     JoystickButton outtakeOutButton = new JoystickButton(stick1, Constants.OI.OUTTAKE_OUT_COMMAND);
-    JoystickButton throughputUpButton = new JoystickButton(stick2, Constants.OI.THROUGHPUT_UP_COMMAND);
-    JoystickButton throughputDownButton = new JoystickButton(stick1, Constants.OI.THROUGHPUT_DOWN_COMMAND);
+    JoystickButton throughputUpButton = new JoystickButton(stick2, Constants.OI.OUTTAKE_OUT_COMMAND);
+    JoystickButton throughputDownButton = new JoystickButton(stick1, Constants.OI.OUTTAKE_IN_COMMAND);
     JoystickButton winchUpButton = new JoystickButton(stick3, Constants.OI.WINCH_UP_COMMAND);
     JoystickButton winchDownButton = new JoystickButton(stick3, Constants.OI.WINCH_DOWN_COMMAND);
 
