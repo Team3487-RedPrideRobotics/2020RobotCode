@@ -4,11 +4,11 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Constants;
 import frc.robot.subsystems.OuttakeSubsystem;
 
-public class OuttakeCommand extends CommandBase {
+public class OuttakeInCommand extends CommandBase {
 
     private OuttakeSubsystem outtake;
 
-    public OuttakeCommand(OuttakeSubsystem subsystem) {
+    public OuttakeInCommand(OuttakeSubsystem subsystem) {
         outtake = subsystem;
 
         addRequirements(subsystem);
@@ -21,17 +21,17 @@ public class OuttakeCommand extends CommandBase {
 
     @Override
     public void initialize() {
-        outtake.outtakeSpeed(Constants.Outtake.SPEED);
+        outtake.outtakeSpeed(Constants.Outtake.IN_SPEED);
     }
 
     @Override
     public void execute() {
-        outtake.outtakeSpeed(Constants.Outtake.SPEED);
+        outtake.outtakeSpeed(Constants.Outtake.IN_SPEED);
     }
 
     @Override
     public boolean isFinished() {
-        return true;
+        return false;
     }
 
 }

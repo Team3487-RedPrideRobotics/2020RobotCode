@@ -16,22 +16,22 @@ public class IntakeInCommand extends CommandBase {
 
     @Override
     public void end(boolean interrupted) {
-        intake.rotateSpeed(0);
+        intake.spinSpeed(0);
     }
 
     @Override
     public void initialize() {
-        intake.rotateSpeed(Constants.Intake.IN_SPEED);
+        intake.spinSpeed(Constants.Intake.IN_SPEED);
     }
 
     @Override
     public void execute() {
-        intake.rotateSpeed(Constants.Intake.IN_SPEED);
+        intake.spinSpeed(Constants.Intake.IN_SPEED);
     }
 
     @Override
     public boolean isFinished() {
-        return true;
+        return false;
     }
 
 }

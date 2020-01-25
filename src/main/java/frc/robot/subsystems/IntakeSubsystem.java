@@ -9,8 +9,6 @@ public class IntakeSubsystem extends SubsystemBase {
     private final Spark rotate = new Spark(Constants.INTAKE_ROTATE);
     private final Spark spin = new Spark(Constants.INTAKE_SPIN);
 
-    public IntakeSubsystem() {}
-
     public void rotateSpeed(double speed) {
         rotate.set(speed);
     }

@@ -8,8 +8,6 @@ public class ThroughputSubsystem extends SubsystemBase {
 
     private final Spark throughputSpark = new Spark(Constants.THROUGHPUT);
 
-    public ThroughputSubsystem() {}
-
     public void throughputSpeed(double speed) {
         throughputSpark.set(speed);
     }

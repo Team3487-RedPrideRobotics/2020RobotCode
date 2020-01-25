@@ -8,8 +8,6 @@ public class OuttakeSubsystem extends SubsystemBase {
 
     private final Spark outtakeSpark = new Spark(Constants.OUTTAKE);
 
-    public OuttakeSubsystem() {}
-
     public void outtakeSpeed(double speed) {
         outtakeSpark.set(speed);
     }

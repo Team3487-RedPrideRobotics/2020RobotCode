@@ -2,31 +2,31 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Constants;
-import frc.robot.subsystems.IntakeSubsystem;
+import frc.robot.subsystems.OuttakeSubsystem;
 
-public class IntakeOutCommand extends CommandBase {
+public class OuttakeOutCommand extends CommandBase {
 
-    private IntakeSubsystem intake;
+    private OuttakeSubsystem outtake;
 
-    public IntakeOutCommand(IntakeSubsystem subsystem) {
-        intake = subsystem;
+    public OuttakeOutCommand(OuttakeSubsystem subsystem) {
+        outtake = subsystem;
 
         addRequirements(subsystem);
     }
 
     @Override
     public void end(boolean interrupted) {
-        intake.spinSpeed(0);
+        outtake.outtakeSpeed(0);
     }
 
     @Override
     public void initialize() {
-        intake.spinSpeed(Constants.Intake.OUT_SPEED);
+        outtake.outtakeSpeed(Constants.Outtake.OUT_SPEED);
     }
 
     @Override
     public void execute() {
-        intake.spinSpeed(Constants.Intake.OUT_SPEED);
+        outtake.outtakeSpeed(Constants.Outtake.OUT_SPEED);
     }
 
     @Override

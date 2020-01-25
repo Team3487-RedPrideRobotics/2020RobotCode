@@ -38,7 +38,8 @@ public class RobotContainer {
   private final IntakeUpCommand intakeUpCommand = new IntakeUpCommand(intakeSubsystem);
   private final IntakeInCommand intakeInCommand = new IntakeInCommand(intakeSubsystem);
   private final IntakeOutCommand intakeOutCommand = new IntakeOutCommand(intakeSubsystem);
-  private final OuttakeCommand outtakeCommand = new OuttakeCommand(outtakeSubsystem);
+  private final OuttakeOutCommand outtakeOutCommand = new OuttakeOutCommand(outtakeSubsystem);
+  private final OuttakeInCommand outtakeInCommand = new OuttakeInCommand(outtakeSubsystem);
   private final ThroughputUpCommand throughputUpCommand = new ThroughputUpCommand(throughputSubsystem);
   private final ThroughputDownCommand throughputDownCommand = new ThroughputDownCommand(throughputSubsystem);
   /**
@@ -65,7 +66,8 @@ public class RobotContainer {
     JoystickButton intakeUpButton = new JoystickButton(stick2, Constants.OI.INTAKE_UP_COMMAND);
     JoystickButton intakeInButton = new JoystickButton(stick1, Constants.OI.INTAKE_IN_COMMAND);
     JoystickButton intakeOutButton = new JoystickButton(stick2, Constants.OI.INTAKE_OUT_COMMAND);
-    JoystickButton outtakeButton = new JoystickButton(stick2, Constants.OI.OUTTAKE_COMMAND);
+    JoystickButton outtakeInButton = new JoystickButton(stick2, Constants.OI.OUTTAKE_IN_COMMAND);
+    JoystickButton outtakeOutButton = new JoystickButton(stick1, Constants.OI.OUTTAKE_OUT_COMMAND);
     JoystickButton throughputUpButton = new JoystickButton(stick2, Constants.OI.THROUGHPUT_UP_COMMAND);
     JoystickButton throughputDownButton = new JoystickButton(stick1, Constants.OI.THROUGHPUT_DOWN_COMMAND);
 
@@ -82,7 +84,8 @@ public class RobotContainer {
     intakeOutButton.whileHeld(intakeOutCommand);
     intakeInButton.whileHeld(intakeInCommand);
     
-    outtakeButton.whileHeld(outtakeCommand);
+    outtakeOutButton.whileHeld(outtakeOutCommand);
+    outtakeInButton.whileHeld(outtakeInCommand);
 
     throughputUpButton.whileHeld(throughputUpCommand);
     throughputDownButton.whileHeld(throughputDownCommand);

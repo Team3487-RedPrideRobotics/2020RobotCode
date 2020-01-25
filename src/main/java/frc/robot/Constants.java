@@ -57,14 +57,15 @@ public final class Constants {
     }
 
     public static final class Intake {
-        public static final double DOWN_SPEED = 0.5;
-        public static final double UP_SPEED = -0.5;
-        public static final double IN_SPEED = 1;
-        public static final double OUT_SPEED = -1;
+        public static final double DOWN_SPEED = 0.3;
+        public static final double UP_SPEED = -0.3;
+        public static final double IN_SPEED = .4;
+        public static final double OUT_SPEED = -.5;
     }
 
     public static final class Outtake {
-        public static final double SPEED = -1;
+        public static final double IN_SPEED = -1;
+        public static final double OUT_SPEED = 1;
     }
 
     public static final class Throughput {
@@ -91,10 +92,11 @@ public final class Constants {
         public static final int INTAKE_IN_COMMAND = 1;
         public static final int INTAKE_OUT_COMMAND = 1;
 
-        public static final int OUTTAKE_COMMAND = 4;
+        public static final int OUTTAKE_IN_COMMAND = 4;
+        public static final int OUTTAKE_OUT_COMMAND = 4;
 
         public static final int THROUGHPUT_UP_COMMAND = 3;
-        public static final int THROUGHPUT_DOWN_COMMAND = 4;
+        public static final int THROUGHPUT_DOWN_COMMAND = 3;
     }
 
     //Motors
@@ -103,7 +105,7 @@ public final class Constants {
     public static final int CLIMB_RIGHT = 2;
     public static final int CLIMB_LEFT = 3;
     public static final int OUTTAKE = 4;
-    public static final int WINCH_TEMP = 5;   
+    public static final int WINCH = 5;   
     public static final int WHEEL_SPINNER = 6;
     public static final int THROUGHPUT = 7;
     public static final int INTAKE_SPIN = 8;
