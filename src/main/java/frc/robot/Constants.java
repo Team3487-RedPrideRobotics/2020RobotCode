@@ -54,6 +54,8 @@ public final class Constants {
     public static final class ClimbCommand {
         public static final double raiseSpeed = 0.75;
         public static final double lowerSpeed = -1;
+        public static final double winchDownSpeed = 1;
+        public static final double winchUpSpeed = -1;
     }
 
     public static final class Intake {
@@ -97,6 +99,9 @@ public final class Constants {
 
         public static final int THROUGHPUT_UP_COMMAND = 3;
         public static final int THROUGHPUT_DOWN_COMMAND = 3;
+
+        public static final int WINCH_UP_COMMAND = 6;
+        public static final int WINCH_DOWN_COMMAND = 7;
     }
 
     //Motors

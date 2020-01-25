@@ -42,6 +42,8 @@ public class RobotContainer {
   private final OuttakeInCommand outtakeInCommand = new OuttakeInCommand(outtakeSubsystem);
   private final ThroughputUpCommand throughputUpCommand = new ThroughputUpCommand(throughputSubsystem);
   private final ThroughputDownCommand throughputDownCommand = new ThroughputDownCommand(throughputSubsystem);
+  private final WinchUpCommand winchUpCommand = new WinchUpCommand(climbSubsystem);
+  private final WinchDownCommand winchDownCommand = new WinchDownCommand(climbSubsystem);
   /**
    * The container for the robot.  Contains subsystems, OI devices, and commands.
    */
@@ -70,6 +72,8 @@ public class RobotContainer {
     JoystickButton outtakeOutButton = new JoystickButton(stick1, Constants.OI.OUTTAKE_OUT_COMMAND);
     JoystickButton throughputUpButton = new JoystickButton(stick2, Constants.OI.THROUGHPUT_UP_COMMAND);
     JoystickButton throughputDownButton = new JoystickButton(stick1, Constants.OI.THROUGHPUT_DOWN_COMMAND);
+    JoystickButton winchUpButton = new JoystickButton(stick3, Constants.OI.WINCH_UP_COMMAND);
+    JoystickButton winchDownButton = new JoystickButton(stick3, Constants.OI.WINCH_DOWN_COMMAND);
 
     driveSubsytem.setDefaultCommand(new DriveCommand(driveSubsytem, stick1, stick2));
     
@@ -89,6 +93,9 @@ public class RobotContainer {
 
     throughputUpButton.whileHeld(throughputUpCommand);
     throughputDownButton.whileHeld(throughputDownCommand);
+
+    winchDownButton.whileHeld(winchDownCommand);
+    winchUpButton.whileHeld(winchUpCommand);
 
   }
 

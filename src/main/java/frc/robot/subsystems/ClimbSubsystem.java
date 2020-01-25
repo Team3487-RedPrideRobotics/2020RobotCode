@@ -9,6 +9,7 @@ public class ClimbSubsystem extends SubsystemBase {
 
     private SpeedController leftMotor = new Spark(Constants.CLIMB_LEFT);
     private SpeedController rightMotor = new Spark(Constants.CLIMB_RIGHT);
+    private SpeedController winch = new Spark(Constants.WINCH);
 
     public void raiseLeft(double speed) {
         leftMotor.set(speed);
@@ -16,5 +17,9 @@ public class ClimbSubsystem extends SubsystemBase {
 
     public void raiseRight(double speed) {
         rightMotor.set(speed);
+    }
+
+    public void winch(double speed) {
+        winch.set(speed);
     }
 }
