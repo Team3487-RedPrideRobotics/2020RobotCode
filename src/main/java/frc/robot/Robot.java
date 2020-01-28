@@ -22,7 +22,6 @@ import edu.wpi.first.cameraserver.CameraServer;
  */
 public class Robot extends TimedRobot {
   private Command m_autonomousCommand;
-  //TODO Add SendableChooser
   private RobotContainer m_robotContainer;
   private SendableChooser<CommandGroupBase> chooser = new SendableChooser<CommandGroupBase>();
 
@@ -38,7 +37,6 @@ public class Robot extends TimedRobot {
 
 
     CameraServer.getInstance().startAutomaticCapture(0);
-    //Sendable chooser options here.
   }
 
   /**

@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import frc.robot.commands.*;
+import frc.robot.commands.groups.*;
 import frc.robot.subsystems.*;
 import frc.robot.Constants;
 import edu.wpi.first.wpilibj2.command.Command;
@@ -46,19 +47,32 @@ public class RobotContainer {
   private final ThroughputDownCommand throughputDownCommand = new ThroughputDownCommand(throughputSubsystem);
   private final WinchUpCommand winchUpCommand = new WinchUpCommand(climbSubsystem);
   private final WinchDownCommand winchDownCommand = new WinchDownCommand(climbSubsystem);
+  private SendableChooser<CommandGroupBase> chooser;
   /**
    * The container for the robot.  Contains subsystems, OI devices, and commands.
    */
-  public RobotContainer() {
+  public RobotContainer(SendableChooser<CommandGroupBase> chooser) {
+
+    sendableChooser(chooser);
     // Configure the button bindings
     configureButtonBindings();
+
+  }
+
+  private void sendableChooser(SendableChooser<CommandGroupBase> chooser) {
+
+    chooser.addOption("One", new AutoOne(driveSubsytem));
+
+    //this.chooser IS A POINTER
+    this.chooser = chooser;
+
   }
 
   /**
-   * Use this method to define your button->command mappings.  Buttons can be created by
-   * instantiating a {@link GenericHID} or one of its subclasses ({@link
-   * edu.wpi.first.wpilibj.Joystick} or {@link XboxController}), and then passing it to a
-   * {@link edu.wpi.first.wpilibj2.command.button.JoystickButton}.
+   * Use this method to define your button->command mappings. Buttons can be
+   * created by instantiating a {@link GenericHID} or one of its subclasses
+   * ({@link edu.wpi.first.wpilibj.Joystick} or {@link XboxController}), and then
+   * passing it to a {@link edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
   private void configureButtonBindings() {
     Joystick stick1 = new Joystick(Constants.OI.LEFT_STICK);
@@ -112,10 +126,9 @@ public class RobotContainer {
    *
    * @return the command to run in autonomous
    */
-  public Command getAutonomousCommand(SendableChooser<CommandGroupBase> chooser) {
+  public Command getAutonomousCommand() {
     // An ExampleCommand will run in autonomous
     //return m_autoCommand;
-    //TODO Replace this command with the chain of commands for AUTO
     
     return chooser.getSelected();
   }
