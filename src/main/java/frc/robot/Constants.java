@@ -22,6 +22,12 @@ import edu.wpi.first.wpilibj.util.ColorShim;
  */
 public final class Constants {
 
+    public static final class Auto {
+        public static final class One {
+            public static final double DRIVE_ONE = 1;
+        }
+    }
+
     public static final class ControlPanel {
         public static final HashMap<Color, String> COLORMAP = new HashMap<Color, String>() {
             /**

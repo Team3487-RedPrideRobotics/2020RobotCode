@@ -1,5 +1,6 @@
 package frc.robot.commands;
 
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.DriveSubsystem;
 
@@ -7,33 +8,37 @@ public class ADriveStraight extends CommandBase {
     
     private final DriveSubsystem driveSubsystem;
     private final double max_speed;
-    private final boolean reversed;
+    private final Timer timer = new Timer();
+    private double time = 0;
 
-    public ADriveStraight(final DriveSubsystem driveSubsystem, final double max_speed, boolean reversed) {
+    public ADriveStraight(final DriveSubsystem driveSubsystem, final double max_speed, double time) {
 
         this.driveSubsystem = driveSubsystem;
         this.max_speed = max_speed;
-        this.reversed = reversed;
+        this.time = time;
         addRequirements(driveSubsystem);
 
     }
 
     @Override
+    public void initialize() {
+        timer.reset();
+        timer.start();
+    }
+
+    @Override
     public void execute() {
-        //TODO Drive Straight Code gyros NOT ACCELEROMETERS
-        if(reversed) {
-            driveSubsystem.setSpeed(-max_speed, -max_speed);
-        }
         driveSubsystem.setSpeed(max_speed, max_speed);
     }
 
     @Override
     public void end(boolean interrupted) {
         driveSubsystem.setSpeed(0,0);
+        timer.stop();
     } 
 
     @Override
     public boolean isFinished() {
-        return false;
+        return timer.get() >= time;
     }
 }
