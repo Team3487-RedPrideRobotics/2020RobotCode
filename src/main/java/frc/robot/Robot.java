@@ -8,7 +8,9 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.TimedRobot;
+import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj2.command.Command;
+import edu.wpi.first.wpilibj2.command.CommandGroupBase;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import edu.wpi.first.cameraserver.CameraServer;
 
@@ -22,6 +24,7 @@ public class Robot extends TimedRobot {
   private Command m_autonomousCommand;
   //TODO Add SendableChooser
   private RobotContainer m_robotContainer;
+  private SendableChooser<CommandGroupBase> chooser = new SendableChooser<CommandGroupBase>();
 
   /**
    * This function is run when the robot is first started up and should be used for any
@@ -31,7 +34,8 @@ public class Robot extends TimedRobot {
   public void robotInit() {
     // Instantiate our RobotContainer.  This will perform all our button bindings, and put our
     // autonomous chooser on the dashboard.
-    m_robotContainer = new RobotContainer();
+    m_robotContainer = new RobotContainer(chooser);
+
 
     CameraServer.getInstance().startAutomaticCapture(0);
     //Sendable chooser options here.
@@ -69,7 +73,6 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void autonomousInit() {
-    //chooser.getSelected().schedule();
     m_autonomousCommand = m_robotContainer.getAutonomousCommand();
 
     // schedule the autonomous command (example)

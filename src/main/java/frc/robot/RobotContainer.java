@@ -9,10 +9,12 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import frc.robot.commands.*;
 import frc.robot.subsystems.*;
 import frc.robot.Constants;
 import edu.wpi.first.wpilibj2.command.Command;
+import edu.wpi.first.wpilibj2.command.CommandGroupBase;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 
 /**
@@ -110,10 +112,11 @@ public class RobotContainer {
    *
    * @return the command to run in autonomous
    */
-  public Command getAutonomousCommand() {
+  public Command getAutonomousCommand(SendableChooser<CommandGroupBase> chooser) {
     // An ExampleCommand will run in autonomous
     //return m_autoCommand;
     //TODO Replace this command with the chain of commands for AUTO
-    return spinPanelCommand;
+    
+    return chooser.getSelected();
   }
 }
