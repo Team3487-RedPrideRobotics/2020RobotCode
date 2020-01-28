@@ -9,13 +9,13 @@ public class ADriveStraight extends CommandBase {
     private final DriveSubsystem driveSubsystem;
     private final double max_speed;
     private final Timer timer = new Timer();
-    private double time = 0;
+    private double feet = 0;
 
-    public ADriveStraight(final DriveSubsystem driveSubsystem, final double max_speed, double time) {
+    public ADriveStraight(final DriveSubsystem driveSubsystem, final double max_speed, double feet) {
 
         this.driveSubsystem = driveSubsystem;
         this.max_speed = max_speed;
-        this.time = time;
+        this.feet = feet;
         addRequirements(driveSubsystem);
 
     }
@@ -39,6 +39,7 @@ public class ADriveStraight extends CommandBase {
 
     @Override
     public boolean isFinished() {
-        return timer.get() >= time;
+        //If the current time is gtoe f
+        return timer.get() >= feet/((12.98/100)*Math.abs(max_speed/255));
     }
 }
