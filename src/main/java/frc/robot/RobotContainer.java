@@ -66,12 +66,14 @@ public class RobotContainer {
     JoystickButton findColorButton = new JoystickButton(stick3, Constants.OI.FIND_COLOR_COMMAND);
     JoystickButton intakeDownButton = new JoystickButton(stick1, Constants.OI.INTAKE_DOWN_COMMAND);
     JoystickButton intakeUpButton = new JoystickButton(stick2, Constants.OI.INTAKE_UP_COMMAND);
-    JoystickButton intakeInButton = new JoystickButton(stick1, Constants.OI.INTAKE_IN_COMMAND);
-    JoystickButton intakeOutButton = new JoystickButton(stick2, Constants.OI.INTAKE_OUT_COMMAND);
-    JoystickButton outtakeInButton = new JoystickButton(stick2, Constants.OI.OUTTAKE_IN_COMMAND);
-    JoystickButton outtakeOutButton = new JoystickButton(stick1, Constants.OI.OUTTAKE_OUT_COMMAND);
-    JoystickButton throughputUpButton = new JoystickButton(stick2, Constants.OI.OUTTAKE_OUT_COMMAND);
-    JoystickButton throughputDownButton = new JoystickButton(stick1, Constants.OI.OUTTAKE_IN_COMMAND);
+    JoystickButton intakeInButton = new JoystickButton(stick3, Constants.OI.INTAKE_IN_COMMAND);
+    JoystickButton intakeOutButton = new JoystickButton(stick3, Constants.OI.INTAKE_OUT_COMMAND);
+    JoystickButton outtakeInButton = new JoystickButton(stick1, Constants.OI.OUTTAKE_IN_COMMAND);
+    JoystickButton outtakeOutButton = new JoystickButton(stick2, Constants.OI.OUTTAKE_OUT_COMMAND);
+    JoystickButton throughputUpButton1 = new JoystickButton(stick2, Constants.OI.OUTTAKE_IN_COMMAND);
+    JoystickButton throughputDownButton1 = new JoystickButton(stick1, Constants.OI.OUTTAKE_OUT_COMMAND);
+    JoystickButton throughputUpButton2 = new JoystickButton(stick3, Constants.OI.INTAKE_IN_COMMAND);
+    JoystickButton throughputDownButton2 = new JoystickButton(stick3, Constants.OI.INTAKE_OUT_COMMAND);
     JoystickButton winchUpButton = new JoystickButton(stick3, Constants.OI.WINCH_UP_COMMAND);
     JoystickButton winchDownButton = new JoystickButton(stick3, Constants.OI.WINCH_DOWN_COMMAND);
 
@@ -91,8 +93,11 @@ public class RobotContainer {
     outtakeOutButton.whileHeld(outtakeOutCommand);
     outtakeInButton.whileHeld(outtakeInCommand);
 
-    throughputUpButton.whileHeld(throughputUpCommand);
-    throughputDownButton.whileHeld(throughputDownCommand);
+    throughputUpButton1.whileHeld(throughputUpCommand);
+    throughputDownButton1.whileHeld(throughputDownCommand);
+
+    throughputUpButton2.whileHeld(throughputUpCommand);
+    throughputDownButton2.whileHeld(throughputDownCommand);
 
     winchDownButton.whileHeld(winchDownCommand);
     winchUpButton.whileHeld(winchUpCommand);

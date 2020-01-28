@@ -59,20 +59,20 @@ public final class Constants {
     }
 
     public static final class Intake {
-        public static final double DOWN_SPEED = 0.3;
-        public static final double UP_SPEED = -0.3;
-        public static final double IN_SPEED = .4;
-        public static final double OUT_SPEED = -.5;
+        public static final double DOWN_SPEED = 0.5;
+        public static final double UP_SPEED = -0.5;
+        public static final double IN_SPEED = 1;
+        public static final double OUT_SPEED = -1;
     }
 
     public static final class Outtake {
-        public static final double IN_SPEED = -1;
-        public static final double OUT_SPEED = 1;
+        public static final double IN_SPEED = 1;
+        public static final double OUT_SPEED = -1;
     }
 
     public static final class Throughput {
-        public static final double UP_SPEED = 1;
-        public static final double DOWN_SPEED = -1;
+        public static final double UP_SPEED = -1;
+        public static final double DOWN_SPEED = 1;
     }
 
     //This class holds all constants for the operator interface.
@@ -91,17 +91,14 @@ public final class Constants {
         public static final int INTAKE_DOWN_COMMAND = 2;
         public static final int INTAKE_UP_COMMAND = 2;
 
-        public static final int INTAKE_IN_COMMAND = 1;
-        public static final int INTAKE_OUT_COMMAND = 1;
+        public static final int INTAKE_IN_COMMAND = 5;
+        public static final int INTAKE_OUT_COMMAND = 6;
 
-        public static final int OUTTAKE_IN_COMMAND = 4;
-        public static final int OUTTAKE_OUT_COMMAND = 4;
+        public static final int OUTTAKE_IN_COMMAND = 1;
+        public static final int OUTTAKE_OUT_COMMAND = 1;
 
-        public static final int THROUGHPUT_UP_COMMAND = 3;
-        public static final int THROUGHPUT_DOWN_COMMAND = 3;
-
-        public static final int WINCH_UP_COMMAND = 6;
-        public static final int WINCH_DOWN_COMMAND = 7;
+        public static final int WINCH_UP_COMMAND = 4;
+        public static final int WINCH_DOWN_COMMAND = 2;
     }
 
     //Motors
