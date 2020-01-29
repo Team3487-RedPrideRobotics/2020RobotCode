@@ -10,6 +10,7 @@ package frc.robot;
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.commands.*;
 import frc.robot.commands.groups.*;
 import frc.robot.subsystems.*;
@@ -65,6 +66,8 @@ public class RobotContainer {
 
     //this.chooser IS A POINTER
     this.chooser = chooser;
+
+    SmartDashboard.putData("Auto Mode", chooser);
 
   }
 
