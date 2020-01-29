@@ -23,7 +23,6 @@ import edu.wpi.first.cameraserver.CameraServer;
 public class Robot extends TimedRobot {
   private Command m_autonomousCommand;
   private RobotContainer m_robotContainer;
-  private SendableChooser<CommandGroupBase> chooser = new SendableChooser<CommandGroupBase>();
 
   /**
    * This function is run when the robot is first started up and should be used for any
@@ -33,10 +32,11 @@ public class Robot extends TimedRobot {
   public void robotInit() {
     // Instantiate our RobotContainer.  This will perform all our button bindings, and put our
     // autonomous chooser on the dashboard.
-    m_robotContainer = new RobotContainer(chooser);
+    m_robotContainer = new RobotContainer();
 
 
     CameraServer.getInstance().startAutomaticCapture(0);
+    CameraServer.getInstance().startAutomaticCapture(1);
   }
 
   /**

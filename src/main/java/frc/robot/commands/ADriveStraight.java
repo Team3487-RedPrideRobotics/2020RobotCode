@@ -1,6 +1,7 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.Timer;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.DriveSubsystem;
 
@@ -29,6 +30,8 @@ public class ADriveStraight extends CommandBase {
     @Override
     public void execute() {
         driveSubsystem.setSpeed(max_speed, max_speed);
+        //TODO Fix the distance to time calculator
+        SmartDashboard.putNumber("Time", feet/((12.98/100)*Math.abs(max_speed/255)));
     }
 
     @Override

@@ -29,7 +29,7 @@ public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   //private final ExampleSubsystem m_exampleSubsystem = new ExampleSubsystem();
   private final ControlPanelSubsystem controlPanelSubsystem = new ControlPanelSubsystem();
-  private final DriveSubsystem driveSubsytem = new DriveSubsystem();
+  private final DriveSubsystem driveSubsystem = new DriveSubsystem();
   private final ClimbSubsystem climbSubsystem = new ClimbSubsystem();
   private final IntakeSubsystem intakeSubsystem = new IntakeSubsystem();
   private final OuttakeSubsystem outtakeSubsystem = new OuttakeSubsystem();
@@ -52,21 +52,23 @@ public class RobotContainer {
   /**
    * The container for the robot.  Contains subsystems, OI devices, and commands.
    */
-  public RobotContainer(SendableChooser<CommandGroupBase> chooser) {
+  public RobotContainer() {
 
-    sendableChooser(chooser);
+    sendableChooser();
     // Configure the button bindings
     configureButtonBindings();
 
   }
 
-  private void sendableChooser(SendableChooser<CommandGroupBase> chooser) {
+  private void sendableChooser() {
 
-    chooser.addOption("One", new AutoOne(driveSubsytem));
+    SendableChooser<CommandGroupBase> chooser = new SendableChooser<CommandGroupBase>();
+
+    chooser.setDefaultOption("One", new AutoOne(driveSubsystem));
 
     //this.chooser IS A POINTER
     this.chooser = chooser;
-
+    System.out.println("Sent Chooser");
     SmartDashboard.putData("Auto Mode", chooser);
 
   }
@@ -96,7 +98,7 @@ public class RobotContainer {
     JoystickButton winchUpButton = new JoystickButton(stick3, Constants.OI.WINCH_UP_COMMAND);
     JoystickButton winchDownButton = new JoystickButton(stick3, Constants.OI.WINCH_DOWN_COMMAND);
 
-    driveSubsytem.setDefaultCommand(new DriveCommand(driveSubsytem, stick1, stick2));
+    driveSubsystem.setDefaultCommand(new DriveCommand(driveSubsystem, stick1, stick2));
     
     spinButton.whenPressed(spinPanelCommand);
     findColorButton.whenPressed(findColorCommand);
