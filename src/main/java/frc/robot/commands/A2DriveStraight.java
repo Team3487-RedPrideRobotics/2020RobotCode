@@ -6,14 +6,14 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Constants;
 import frc.robot.subsystems.DriveSubsystem;
 
-public class ADriveStraight extends CommandBase {
+public class A2DriveStraight extends CommandBase {
     
     private final DriveSubsystem driveSubsystem;
     private final double max_speed;
     private final Timer timer = new Timer();
     private double moveTime = 0;
 
-    public ADriveStraight(final DriveSubsystem driveSubsystem, final double max_speed, int feet) {
+    public A2DriveStraight(final DriveSubsystem driveSubsystem, final double max_speed, int feet) {
 
         this.driveSubsystem = driveSubsystem;
         this.max_speed = max_speed * 1.57;
@@ -30,9 +30,10 @@ public class ADriveStraight extends CommandBase {
 
     @Override
     public void execute() {
-        driveSubsystem.setSpeed(max_speed, max_speed);
-        //TODO Fix the distance to time calculator
-        SmartDashboard.putNumber("Drive1 Time", moveTime);
+        if (timer.get() >= 7) {
+            driveSubsystem.setSpeed(max_speed, max_speed);
+            SmartDashboard.putNumber("Drive1 Time", moveTime);
+        }
     }
 
     @Override
@@ -44,6 +45,6 @@ public class ADriveStraight extends CommandBase {
     @Override
     public boolean isFinished() {
         //If the current time is gtoe f
-        return timer.get() >= moveTime;
+        return timer.get() >= moveTime + 7;
     }
 }

@@ -64,8 +64,13 @@ public class RobotContainer {
 
     SendableChooser<CommandGroupBase> chooser = new SendableChooser<CommandGroupBase>();
 
-    chooser.setDefaultOption("One", new AutoOne(driveSubsystem));
-
+    chooser.setDefaultOption("One", new AutoOne(driveSubsystem, outtakeSubsystem));
+    chooser.addOption("Two", new AutoTwo(driveSubsystem, outtakeSubsystem));
+    /*
+    chooser.addOption("Three", new AutoThree(driveSubsystem));
+    chooser.addOption("Four", new AutoFour(driveSubsystem));
+    chooser.addOption("Five", new AutoFive(driveSubsystem));
+*/
     //this.chooser IS A POINTER
     this.chooser = chooser;
     System.out.println("Sent Chooser");
