@@ -8,9 +8,7 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.TimedRobot;
-import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj2.command.Command;
-import edu.wpi.first.wpilibj2.command.CommandGroupBase;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import edu.wpi.first.cameraserver.CameraServer;
 
@@ -35,8 +33,8 @@ public class Robot extends TimedRobot {
     m_robotContainer = new RobotContainer();
 
 
-    CameraServer.getInstance().startAutomaticCapture(0);
-    CameraServer.getInstance().startAutomaticCapture(1);
+    CameraServer.getInstance().startAutomaticCapture("Rear Cam",0);
+    CameraServer.getInstance().startAutomaticCapture("Front Cam",1);
   }
 
   /**
