@@ -10,7 +10,7 @@ public class AutoFive extends SequentialCommandGroup {
 //TODO add commands
 
     public AutoFive(DriveSubsystem drive) {
-        addCommands(new ADriveStraight(drive,Constants.Auto.One.DRIVE_ONE, 5));
+        addCommands(new ADriveStraight(drive,Constants.Auto.DRIVE, 5));
     }
 
 }

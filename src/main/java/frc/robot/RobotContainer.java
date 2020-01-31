@@ -66,11 +66,10 @@ public class RobotContainer {
 
     chooser.setDefaultOption("One", new AutoOne(driveSubsystem, outtakeSubsystem));
     chooser.addOption("Two", new AutoTwo(driveSubsystem, outtakeSubsystem));
-    /*
-    chooser.addOption("Three", new AutoThree(driveSubsystem));
+    chooser.addOption("Three", new AutoThree(driveSubsystem, outtakeSubsystem));
     chooser.addOption("Four", new AutoFour(driveSubsystem));
-    chooser.addOption("Five", new AutoFive(driveSubsystem));
-*/
+    chooser.addOption("Super Secret", new AutoFive(driveSubsystem));
+    
     //this.chooser IS A POINTER
     this.chooser = chooser;
     System.out.println("Sent Chooser");

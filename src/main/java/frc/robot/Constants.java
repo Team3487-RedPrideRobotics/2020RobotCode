@@ -23,9 +23,8 @@ import edu.wpi.first.wpilibj.util.ColorShim;
 public final class Constants {
 
     public static final class Auto {
-        public static final class One {
-            public static final double DRIVE_ONE = .5;
-        }
+        public static final double DRIVE = .5;
+        public static final double ROTATE =.6;
     }
 
     public static final class ControlPanel {

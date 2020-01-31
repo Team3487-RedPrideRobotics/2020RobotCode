@@ -8,12 +8,14 @@ import frc.robot.subsystems.*;
 
 public class AutoTwo extends SequentialCommandGroup {
 
-//TODO add commands
-
     public AutoTwo(final DriveSubsystem drive, final OuttakeSubsystem outtake) {
-            addCommands(new A2DriveStraight(drive,-Constants.Auto.One.DRIVE_ONE, 10),
+            addCommands(
+            //Drive straight to wall after 7s   
+            new A2DriveStraight(drive,-Constants.Auto.DRIVE, 10),
+            //Outtake shortly
             new AOuttakeCommand(outtake, Constants.Outtake.OUT_SPEED),
-            new ADriveStraight(drive,Constants.Auto.One.DRIVE_ONE, 10)
+            //Return to line
+            new ADriveStraight(drive,Constants.Auto.DRIVE, 10)
             );
         
     }

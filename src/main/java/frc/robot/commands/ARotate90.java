@@ -1,25 +1,21 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.Timer;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import frc.robot.Constants;
-import frc.robot.subsystems.*;
+import frc.robot.subsystems.DriveSubsystem;
 
-public class ADriveStraight extends CommandBase {
+public class ARotate90 extends CommandBase {
     
     private final DriveSubsystem driveSubsystem;
     private final double max_speed;
     private final Timer timer = new Timer();
-    private double moveTime = 0;
 
-    public ADriveStraight(final DriveSubsystem driveSubsystem, final double max_speed, int feet) {
+    public ARotate90(final DriveSubsystem driveSubsystem, final double max_speed) {
 
         this.driveSubsystem = driveSubsystem;
-        this.max_speed = max_speed * 1.57;
+        this.max_speed = max_speed;
         addRequirements(driveSubsystem);
-        moveTime = (feet/(12.98*Constants.Auto.DRIVE));
-
+        
     }
 
     @Override
@@ -30,8 +26,9 @@ public class ADriveStraight extends CommandBase {
 
     @Override
     public void execute() {
-        driveSubsystem.setSpeed(max_speed, max_speed);
-        SmartDashboard.putNumber("Drive1 Time", moveTime);
+        if (timer.get() >= 0.5) {
+        driveSubsystem.setSpeed(max_speed, -max_speed);
+        }
     }
 
     @Override
@@ -43,6 +40,6 @@ public class ADriveStraight extends CommandBase {
     @Override
     public boolean isFinished() {
         //If the current time is gtoe f
-        return timer.get() >= moveTime;
+        return timer.get() >= 1.4;
     }
 }
