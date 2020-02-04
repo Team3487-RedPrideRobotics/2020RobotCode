@@ -58,7 +58,7 @@ public final class Constants {
 
     public static final class ClimbCommand {
         public static final double raiseSpeed = 0.75;
-        public static final double lowerSpeed = -1;
+        public static final double lowerSpeed = -.5;
         public static final double winchDownSpeed = 1;
         public static final double winchUpSpeed = -1;
     }
