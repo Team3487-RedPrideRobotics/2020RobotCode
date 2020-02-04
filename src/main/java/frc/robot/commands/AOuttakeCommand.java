@@ -2,7 +2,7 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Constants;
-import frc.robot.subsystems.OuttakeSubsystem;
+import frc.robot.subsystems.*;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
@@ -13,7 +13,6 @@ public class AOuttakeCommand extends CommandBase {
 
     public AOuttakeCommand(OuttakeSubsystem subsystem, final double max_speed_out) {
         outtake = subsystem;
-
         addRequirements(subsystem);
     }
 
@@ -31,7 +30,7 @@ public class AOuttakeCommand extends CommandBase {
 
     @Override
     public void execute() {
-        if (timer.get() >= 1 && timer.get() < 1.75) {
+        if (timer.get() >= 0.75 && timer.get() < 1.75) {
         outtake.outtakeSpeed(Constants.Outtake.OUT_SPEED);
         SmartDashboard.putNumber("Out Time", timer.get());
         }

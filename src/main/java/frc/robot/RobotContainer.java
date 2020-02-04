@@ -110,6 +110,10 @@ public class RobotContainer {
     RaiseHooksCommand raiseHooksCommand = new RaiseHooksCommand(climbSubsystem, stick3);
     climbSubsystem.setDefaultCommand(raiseHooksCommand);
 
+
+    ManualSpinCommand manualSpinCommand = new ManualSpinCommand(controlPanelSubsystem, stick3);
+    
+
     intakeDownButton.whileHeld(intakeDownCommand);
     intakeUpButton.whileHeld(intakeUpCommand);
     intakeOutButton.whileHeld(intakeOutCommand);
