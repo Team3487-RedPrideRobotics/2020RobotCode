@@ -23,8 +23,10 @@ import edu.wpi.first.wpilibj.util.ColorShim;
 public final class Constants {
 
     public static final class Auto {
-        public static final double DRIVE = .5;
-        public static final double ROTATE =.6;
+        public static final double DRIVE = .48;
+        public static final double DRIVE2 = .5;
+        public static final double ROTATE =.62;
+        public static final double ROTATE2 = .66;
     }
 
     public static final class ControlPanel {
@@ -78,6 +80,10 @@ public final class Constants {
     public static final class Throughput {
         public static final double UP_SPEED = -1;
         public static final double DOWN_SPEED = 1;
+    }
+
+    public static final class ControlPanelManual {
+        public static final double SPEED = 0.5;
     }
 
     //This class holds all constants for the operator interface.

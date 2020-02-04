@@ -3,6 +3,8 @@ package frc.robot.commands;
 import java.util.HashMap;
 
 import edu.wpi.first.wpilibj.DriverStation;
+import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Constants;
 import frc.robot.subsystems.ControlPanelSubsystem;
@@ -11,6 +13,7 @@ public class FindColorCommand extends CommandBase {
 
     private ControlPanelSubsystem controlPanel;
     private String gameData = "";
+    SendableChooser<String> debugChooser = new SendableChooser<String>();
     private HashMap<String, String> colorShifter = new HashMap<String, String>() {
         /**
         * Generated ID Removes Warnings
@@ -41,6 +44,13 @@ public class FindColorCommand extends CommandBase {
     public FindColorCommand(ControlPanelSubsystem subsystem) {
         this.controlPanel = subsystem;
         addRequirements(this.controlPanel);
+        debugChooser.setDefaultOption("Auto", "auto");
+        debugChooser.addOption("Red", "R");
+        debugChooser.addOption("Green", "G");
+        debugChooser.addOption("Blue", "B");
+        debugChooser.addOption("Yellow", "Y");
+        SmartDashboard.putData(debugChooser);
+
     }
 
     @Override
@@ -66,10 +76,16 @@ public class FindColorCommand extends CommandBase {
     }
 
     private boolean main() {
-        if(gameData.length() == 0) {
+        
+        gameData = debugChooser.getSelected();
+        
+        if(gameData.equals("auto")) {
             gameData = DriverStation.getInstance().getGameSpecificMessage();
-            return false;
+            if (gameData.length() == 0) {
+                return false;
+            }
         }
+            
         String findColor = interpretColor.get(gameData.substring(0, 1));
         String wheelColor = colorShifter.get(controlPanel.getColor());
 

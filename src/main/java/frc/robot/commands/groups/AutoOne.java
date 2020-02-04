@@ -7,14 +7,15 @@ import frc.robot.subsystems.*;
 
 public class AutoOne extends SequentialCommandGroup {
 
+    //93% Success
     public AutoOne(DriveSubsystem drive, OuttakeSubsystem outtake) {
         addCommands(
         //Drive straight to wall    
-        new ADriveStraight(drive,-Constants.Auto.DRIVE, 10),
+        new ADriveStraight(drive,-Constants.Auto.DRIVE, (114/10)),
         //Outtake
         new AOuttakeCommand(outtake, Constants.Outtake.OUT_SPEED),
         //Return to line
-        new ADriveStraight(drive,Constants.Auto.DRIVE, 10)
+        new ADriveStraight(drive,Constants.Auto.DRIVE, (114/10))
         );
     }
 
