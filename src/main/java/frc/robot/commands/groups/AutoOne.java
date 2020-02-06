@@ -7,13 +7,13 @@ import frc.robot.subsystems.*;
 
 public class AutoOne extends SequentialCommandGroup {
 
-    //93% Success
-    public AutoOne(DriveSubsystem drive, OuttakeSubsystem outtake) {
+    // 93% Success
+    public AutoOne(DriveSubsystem drive, OuttakeSubsystem outtake, ThroughputSubsystem throughput) {
         addCommands(
         //Drive straight to wall    
         new ADriveStraight(drive,-Constants.Auto.DRIVE, (114/10)),
         //Outtake
-        new AOuttakeCommand(outtake, Constants.Outtake.OUT_SPEED),
+        new AOuttakeCommand(outtake, throughput, Constants.Outtake.OUT_SPEED, 2),
         //Return to line
         new ADriveStraight(drive,Constants.Auto.DRIVE, (114/10))
         );

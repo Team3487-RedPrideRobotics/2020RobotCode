@@ -64,9 +64,9 @@ public class RobotContainer {
 
     SendableChooser<CommandGroupBase> chooser = new SendableChooser<CommandGroupBase>();
 
-    chooser.setDefaultOption("One", new AutoOne(driveSubsystem, outtakeSubsystem));
-    chooser.addOption("Two", new AutoTwo(driveSubsystem, outtakeSubsystem));
-    chooser.addOption("Three", new AutoThree(driveSubsystem, outtakeSubsystem));
+    chooser.setDefaultOption("One", new AutoOne(driveSubsystem, outtakeSubsystem, throughputSubsystem));
+    chooser.addOption("Two", new AutoTwo(driveSubsystem, outtakeSubsystem, throughputSubsystem));
+    chooser.addOption("Three", new AutoThree(driveSubsystem, outtakeSubsystem, throughputSubsystem));
     chooser.addOption("Four", new AutoFour(driveSubsystem));
     chooser.addOption("Super Secret", new AutoFive(driveSubsystem));
     
@@ -112,7 +112,7 @@ public class RobotContainer {
 
 
     ManualSpinCommand manualSpinCommand = new ManualSpinCommand(controlPanelSubsystem, stick3);
-    
+    controlPanelSubsystem.setDefaultCommand(manualSpinCommand);
 
     intakeDownButton.whileHeld(intakeDownCommand);
     intakeUpButton.whileHeld(intakeUpCommand);

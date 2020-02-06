@@ -24,25 +24,27 @@ public class ManualSpinCommand extends CommandBase {
     @Override
     public void initialize() {
         if (stick.getRawAxis(0) > 0) {
-            controlPanel.setSpeed(Constants.ControlPanelManual.SPEED);
-        } else if (stick.getRawAxis(0) < 0) {
             controlPanel.setSpeed(-Constants.ControlPanelManual.SPEED);
-        }
-    }
-
-    @Override
-    public void end(final boolean interrupted) {
-        if (stick.getRawAxis(0) == 0) {
+        } else if (stick.getRawAxis(0) < 0) {
+            controlPanel.setSpeed(Constants.ControlPanelManual.SPEED);
+        } else if (stick.getRawAxis(0) == 0) {
             controlPanel.setSpeed(0);
         }
     }
 
     @Override
+    public void end(final boolean interrupted) {
+        controlPanel.setSpeed(0);
+    }
+
+    @Override
     public void execute() {
         if (stick.getRawAxis(0) > 0) {
-            controlPanel.setSpeed(Constants.ControlPanelManual.SPEED);
-        } else if (stick.getRawAxis(0) < 0) {
             controlPanel.setSpeed(-Constants.ControlPanelManual.SPEED);
+        } else if (stick.getRawAxis(0) < 0) {
+            controlPanel.setSpeed(Constants.ControlPanelManual.SPEED);
+        } else if (stick.getRawAxis(0) == 0) {
+            controlPanel.setSpeed(0);
         }                
     }
     

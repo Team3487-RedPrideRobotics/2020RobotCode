@@ -40,6 +40,6 @@ public class ARotate90 extends CommandBase {
     @Override
     public boolean isFinished() {
         //If the current time is gtoe f
-        return timer.get() >= 1.375;
+        return timer.get() >= 1.25;
     }
 }
