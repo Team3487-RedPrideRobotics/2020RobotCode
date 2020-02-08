@@ -30,7 +30,7 @@ public class ADriveStraight extends CommandBase {
 
     @Override
     public void execute() {
-        driveSubsystem.setSpeed(max_speed + 0.01, max_speed);
+        driveSubsystem.setSpeed(max_speed, max_speed - 0.01);
         SmartDashboard.putNumber("Drive1 Time", moveTime);
     }
 
