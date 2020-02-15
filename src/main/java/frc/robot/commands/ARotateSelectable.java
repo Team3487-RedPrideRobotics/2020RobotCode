@@ -48,6 +48,6 @@ public class ARotateSelectable extends CommandBase {
     @Override
     public boolean isFinished() {
         //If the current time is gtoe f
-        return timer.get() >= moveTime + 0.1;
+        return timer.get() >= moveTime + 0.2;
     }
 }

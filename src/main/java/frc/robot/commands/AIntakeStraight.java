@@ -6,22 +6,21 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Constants;
 import frc.robot.subsystems.*;
 
-public class ADriveStraight extends CommandBase {
+public class AIntakeStraight extends CommandBase {
     
     private final DriveSubsystem driveSubsystem;
-    private final ThroughputSubsystem throughput;
+    private final IntakeSubsystem intakeSubsystem;
+    private final ThroughputSubsystem throughputSubsystem;
     private final double max_speed;
-    private final double throughputSpeed;
-    private final double feet;
     private final Timer timer = new Timer();
     private double moveTime = 0;
 
-    public ADriveStraight(final DriveSubsystem driveSubsystem, final ThroughputSubsystem throughput, final double throughputSpeed,final double max_speed, int feet) {
-        this.feet = feet;
+    public AIntakeStraight(final DriveSubsystem driveSubsystem, final IntakeSubsystem intakeSubsystem, final ThroughputSubsystem throughputSubsystem, final double max_speed, int feet) {
+
+        this.throughputSubsystem = throughputSubsystem;
+        this.intakeSubsystem = intakeSubsystem;
         this.driveSubsystem = driveSubsystem;
-        this.throughput = throughput;
         this.max_speed = max_speed * 1.57;
-        this.throughputSpeed = throughputSpeed;
         addRequirements(driveSubsystem);
         moveTime = (feet/(12.98*Constants.Auto.DRIVE));
 
@@ -35,21 +34,20 @@ public class ADriveStraight extends CommandBase {
 
     @Override
     public void execute() {
-        
-        if (feet <= 15) {
-            driveSubsystem.setSpeed(max_speed + 0.01 , max_speed - 0.01);
-            throughput.throughputSpeed(throughputSpeed);
-            SmartDashboard.putNumber("Drive1 Time", moveTime);
-        } else if (feet > 15) {
-            driveSubsystem.setSpeed(max_speed * 0.95, max_speed - 0.02);
-            throughput.throughputSpeed(throughputSpeed);
+        if (timer.get() <= 0.15) {
+            intakeSubsystem.rotateSpeed(Constants.Intake.UP_SPEED);
         }
+        driveSubsystem.setSpeed(max_speed, max_speed - 0.01);
+        intakeSubsystem.spinSpeed(Constants.Intake.IN_SPEED - 0.05);
+        throughputSubsystem.throughputSpeed(Constants.Throughput.DOWN_SPEED);
+        SmartDashboard.putNumber("Drive1 Time", moveTime);
     }
 
     @Override
     public void end(boolean interrupted) {
         driveSubsystem.setSpeed(0,0);
-        throughput.throughputSpeed(0);
+        intakeSubsystem.spinSpeed(0);
+        throughputSubsystem.throughputSpeed(0);
         timer.stop();
     } 
 

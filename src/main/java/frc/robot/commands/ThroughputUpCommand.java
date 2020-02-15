@@ -10,7 +10,6 @@ public class ThroughputUpCommand extends CommandBase {
 
     public ThroughputUpCommand(ThroughputSubsystem subsystem) {
         throughput = subsystem;
-
         addRequirements(subsystem);
     }
 

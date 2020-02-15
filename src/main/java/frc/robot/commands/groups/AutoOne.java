@@ -11,11 +11,11 @@ public class AutoOne extends SequentialCommandGroup {
     public AutoOne(DriveSubsystem drive, OuttakeSubsystem outtake, ThroughputSubsystem throughput) {
         addCommands(
         //Drive straight to wall    
-        new ADriveStraight(drive,-Constants.Auto.DRIVE, (114/10)),
+        new ADriveStraight(drive, throughput, 0, -Constants.Auto.DRIVE, (114/10)),
         //Outtake
         new AOuttakeCommand(outtake, throughput, Constants.Outtake.OUT_SPEED, (7/2)),
         //Return to line
-        new ADriveStraight(drive,Constants.Auto.DRIVE, (114/10))
+        new ADriveStraight(drive, throughput, 0, Constants.Auto.DRIVE, (114/10))
         );
     }
 

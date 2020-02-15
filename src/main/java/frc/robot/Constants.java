@@ -26,6 +26,7 @@ public final class Constants {
         public static final double DRIVE = .48;
         public static final double DRIVE2 = .5;
         public static final double ROTATE =.7;
+        public static final double INTAKE_DRIVE = .4;
     }
 
     public static final class ControlPanel {
@@ -65,7 +66,7 @@ public final class Constants {
     }
 
     public static final class Intake {
-        public static final double DOWN_SPEED = 0.5;
+        public static final double DOWN_SPEED = 0.75;
         public static final double UP_SPEED = -0.5;
         public static final double IN_SPEED = 1;
         public static final double OUT_SPEED = -1;

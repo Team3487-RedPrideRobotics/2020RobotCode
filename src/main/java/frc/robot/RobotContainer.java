@@ -68,7 +68,7 @@ public class RobotContainer {
     chooser.addOption("Two", new AutoTwo(driveSubsystem, outtakeSubsystem, throughputSubsystem));
     chooser.addOption("Three", new AutoThree(driveSubsystem, outtakeSubsystem, throughputSubsystem));
     chooser.addOption("Four", new AutoFour(driveSubsystem, outtakeSubsystem, throughputSubsystem, intakeSubsystem));
-    chooser.addOption("Super Secret", new AutoFive(driveSubsystem));
+    chooser.addOption("Super Secret", new AutoFive(driveSubsystem, throughputSubsystem));
     
     //this.chooser IS A POINTER
     this.chooser = chooser;

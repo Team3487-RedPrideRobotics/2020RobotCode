@@ -15,7 +15,7 @@ public class AutoTwo extends SequentialCommandGroup {
             //Outtake shortly
             new AOuttakeCommand(outtake, throughput, Constants.Outtake.OUT_SPEED, 2),
             //Return to line
-            new ADriveStraight(drive,Constants.Auto.DRIVE, (115/10))
+            new ADriveStraight(drive, throughput, 0, Constants.Auto.DRIVE, (115/10))
             );
         
     }
