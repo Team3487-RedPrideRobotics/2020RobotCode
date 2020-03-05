@@ -15,11 +15,11 @@ public class AutoFour extends SequentialCommandGroup {
 
             new ADriveStraight(drive, throughput, 0, Constants.Auto.DRIVE, 2),
 
-            new ARotateSelectable(drive, (Constants.Auto.ROTATE), 28),
+            new ARotateSelectable(drive, (Constants.Auto.ROTATE - 0.2), 28),
 
-            new ADriveStraight(drive, throughput, 0, Constants.Auto.DRIVE, (215/10)),
+            new ADriveStraight(drive, throughput, 0, Constants.Auto.DRIVE, (196/10)),
 
-            new ARotateSelectable(drive, -Constants.Auto.ROTATE, 32),
+            new ARotateSelectable(drive, -Constants.Auto.ROTATE, 38),
 
             new AIntakeStraight(drive, intake, throughput, Constants.Auto.DRIVE * 0.98, 17),
 

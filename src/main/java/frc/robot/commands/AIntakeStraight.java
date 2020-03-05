@@ -39,7 +39,7 @@ public class AIntakeStraight extends CommandBase {
         }
         driveSubsystem.setSpeed(max_speed, max_speed - 0.01);
         intakeSubsystem.spinSpeed(Constants.Intake.IN_SPEED - 0.05);
-        throughputSubsystem.throughputSpeed(Constants.Throughput.DOWN_SPEED);
+        throughputSubsystem.throughputSpeed(Constants.Throughput.UP_SPEED);
         SmartDashboard.putNumber("Drive1 Time", moveTime);
     }
 

@@ -25,7 +25,7 @@ public final class Constants {
     public static final class Auto {
         public static final double DRIVE = .48;
         public static final double DRIVE2 = .5;
-        public static final double ROTATE =.7;
+        public static final double ROTATE =.9;
         public static final double INTAKE_DRIVE = .4;
     }
 

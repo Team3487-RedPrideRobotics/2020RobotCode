@@ -27,7 +27,7 @@ public class ARotate90cc extends CommandBase {
     @Override
     public void execute() {
         if (timer.get() >= 0.1) {
-        driveSubsystem.setSpeed((max_speed * 0.75), -max_speed + 0.05);
+        driveSubsystem.setSpeed((max_speed * 0.9), -max_speed + 0.05);
         }
     }
 
@@ -40,6 +40,6 @@ public class ARotate90cc extends CommandBase {
     @Override
     public boolean isFinished() {
         //If the current time is gtoe f
-        return timer.get() >= 1;
+        return timer.get() >= 1.15;
     }
 }

@@ -13,7 +13,7 @@ public class AutoTwo extends SequentialCommandGroup {
             //Drive straight to wall after 7s   
             new A2DriveStraight(drive,-Constants.Auto.DRIVE, (115/10)),
             //Outtake shortly
-            new AOuttakeCommand(outtake, throughput, Constants.Outtake.OUT_SPEED, 2),
+            new AOuttakeCommand(outtake, throughput, Constants.Outtake.OUT_SPEED, (7/2)),
             //Return to line
             new ADriveStraight(drive, throughput, 0, Constants.Auto.DRIVE, (115/10))
             );

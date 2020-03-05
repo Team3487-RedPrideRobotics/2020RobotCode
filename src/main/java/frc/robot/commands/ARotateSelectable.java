@@ -8,6 +8,7 @@ public class ARotateSelectable extends CommandBase {
     
     private final DriveSubsystem driveSubsystem;
     private final double max_speed;
+    private final double movement;
     private final double rotation;
     private final double percent;
     private final double circumference;
@@ -24,6 +25,7 @@ public class ARotateSelectable extends CommandBase {
         circumference = (21.5*3.14159265358);
         inchesPerSecond = 155.76;
         moveTime = 100*((percent * circumference)/(max_speed * inchesPerSecond));
+        movement = 1 + moveTime;
         addRequirements(driveSubsystem);
         
     }
@@ -36,7 +38,9 @@ public class ARotateSelectable extends CommandBase {
 
     @Override
     public void execute() {
+        if (timer.get() >= 1) {
         driveSubsystem.setSpeed(-max_speed, max_speed);
+        }
     }
 
     @Override
@@ -48,6 +52,6 @@ public class ARotateSelectable extends CommandBase {
     @Override
     public boolean isFinished() {
         //If the current time is gtoe f
-        return timer.get() >= moveTime + 0.2;
+        return timer.get() >= movement + 0.2;
     }
 }

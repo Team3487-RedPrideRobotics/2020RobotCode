@@ -41,7 +41,7 @@ public class ADriveStraight extends CommandBase {
             throughput.throughputSpeed(throughputSpeed);
             SmartDashboard.putNumber("Drive1 Time", moveTime);
         } else if (feet > 15) {
-            driveSubsystem.setSpeed(max_speed * 0.95, max_speed - 0.02);
+            driveSubsystem.setSpeed(max_speed * 0.95, max_speed - 0.01);
             throughput.throughputSpeed(throughputSpeed);
         }
     }
