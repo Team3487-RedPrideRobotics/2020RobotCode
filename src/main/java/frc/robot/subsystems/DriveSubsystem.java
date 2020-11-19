@@ -15,8 +15,8 @@ import frc.robot.Constants;
 public class DriveSubsystem extends SubsystemBase {
 
     private ShuffleboardTab tab = Shuffleboard.getTab("Drive");
-    private NetworkTableEntry leftSpeed = tab.addPersistent("Left Scalar", 1).withWidget(BuiltInWidgets.kNumberSlider).withProperties(Map.of("min", -1.0, "max", 1)).getEntry();
-    private NetworkTableEntry rightSpeed = tab.addPersistent("Right Scalar", 1).withWidget(BuiltInWidgets.kNumberSlider).withProperties(Map.of("min", -1.0, "max", 1)).getEntry();
+    private NetworkTableEntry leftSpeed = tab.addPersistent("Left Scalar", 1).withWidget(BuiltInWidgets.kNumberSlider).withProperties(Map.of("min", -1.0, "max", 1.0)).getEntry();
+    private NetworkTableEntry rightSpeed = tab.addPersistent("Right Scalar", 1).withWidget(BuiltInWidgets.kNumberSlider).withProperties(Map.of("min", -1.0, "max", 1.0)).getEntry();
 
     private SpeedController leftMotor = new Spark(Constants.DRIVE_LEFT);
     private SpeedController rightMotor = new Spark(Constants.DRIVE_RIGHT);
