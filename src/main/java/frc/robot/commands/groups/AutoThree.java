@@ -12,11 +12,11 @@ public class AutoThree extends SequentialCommandGroup {
         //Toward wall 5'
         new ADriveStraight(drive, throughput, 0,-Constants.Auto.DRIVE, 5),
         //Clockwise Rotation
-        new ARotate90(drive, Constants.Auto.ROTATE),
+        new ARotate90(drive, Constants.Auto.ROTATE - 0.23),
         //10.5' Further
         new ADriveStraight(drive, throughput, 0,-Constants.Auto.DRIVE, (1415/100)),
         //Counter-Clockwise Rotation
-        new ARotate90cc(drive, -Constants.Auto.ROTATE),
+        new ARotate90cc(drive, -(Constants.Auto.ROTATE - 0.3)),
         //Touch wall
         new ADriveStraight(drive, throughput, 0, -Constants.Auto.DRIVE2, (660/100)),
         //Eject

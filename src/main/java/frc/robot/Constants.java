@@ -67,7 +67,7 @@ public final class Constants {
 
     public static final class Intake {
         public static final double DOWN_SPEED = 0.75;
-        public static final double UP_SPEED = -0.5;
+        public static final double UP_SPEED = -0.75;
         public static final double IN_SPEED = 1;
         public static final double OUT_SPEED = -1;
     }

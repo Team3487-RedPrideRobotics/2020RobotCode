@@ -35,7 +35,7 @@ public class AIntakeStraight extends CommandBase {
     @Override
     public void execute() {
         if (timer.get() <= 0.15) {
-            intakeSubsystem.rotateSpeed(Constants.Intake.UP_SPEED);
+            intakeSubsystem.rotateSpeed(Constants.Intake.DOWN_SPEED);
         }
         driveSubsystem.setSpeed(max_speed, max_speed - 0.01);
         intakeSubsystem.spinSpeed(Constants.Intake.IN_SPEED - 0.05);
