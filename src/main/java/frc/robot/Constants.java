@@ -8,7 +8,6 @@
 package frc.robot;
 
 import java.util.HashMap;
-
 import edu.wpi.first.wpilibj.util.Color;
 import edu.wpi.first.wpilibj.util.ColorShim;
 
